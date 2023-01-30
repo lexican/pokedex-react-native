@@ -3,8 +3,14 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from '../features/splash/splash';
 import routes from '../routes/routes';
+import Home from '../features/home/home';
 
-const Stack = createNativeStackNavigator();
+export type RootStackParamList = {
+  Splash: undefined;
+  Home: undefined;
+};
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const Navigation = () => {
   return (
@@ -12,7 +18,9 @@ const Navigation = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
-        }}>
+        }}
+        initialRouteName="Splash">
+        <Stack.Screen name="Home" component={Home} options={{title: ''}} />
         <Stack.Screen
           name={routes.Splash}
           component={Splash}
