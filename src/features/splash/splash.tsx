@@ -5,7 +5,7 @@ import {
   SplashContainer,
   SubTitle,
   Title,
-} from './splash.style';
+} from './Splash.style';
 import Logo from '../../../assets/icons/logo.svg';
 import {NativeStackScreenProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {RootStackParamList} from '../../navigation/navigation';

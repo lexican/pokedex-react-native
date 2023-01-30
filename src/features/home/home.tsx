@@ -1,10 +1,12 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+
+import React from 'react';
+import HomeAppbar from '../../components/home-appbar/HomeAppBar';
+import { HomeContainer } from './Home.style';
 
 export default function Home() {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
-  )
+    <HomeContainer>
+      <HomeAppbar/>
+    </HomeContainer>
+  );
 }

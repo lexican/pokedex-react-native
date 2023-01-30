@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import Splash from '../features/splash/splash';
+import Splash from '../features/splash/Splash';
 import routes from '../routes/routes';
-import Home from '../features/home/home';
+import Home from '../features/home/Home';
 
 export type RootStackParamList = {
   Splash: undefined;

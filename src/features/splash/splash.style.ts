@@ -1,6 +1,5 @@
 import styled from 'styled-components/native';
 
-
 export const SplashContainer = styled.View`
     flex: 1;
     background: ${(props: { theme: { colors: { primary: string; }; }; }) => props.theme.colors.primary};
