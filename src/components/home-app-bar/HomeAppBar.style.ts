@@ -8,6 +8,8 @@ export const AppBar = styled.View`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom-color: rgba(0, 0, 0, 0.05);
+  border-bottom-width: 2px;
 `;
 
 export const AppBarTitle = styled.Text`

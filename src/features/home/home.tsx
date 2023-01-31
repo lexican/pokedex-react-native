@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
-import HomeAppbar from '../../components/home-appbar/HomeAppBar';
+import HomeAppbar from '../../components/home-app-bar/HomeAppBar';
 import HomeTab from '../../components/home-tab/HomeTab';
+import PokemonList from '../../components/pokemon-list/PokemonList';
 import {HomeContainer} from './Home.style';
+
+
 
 export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const onTabSelected = (index: number) => {
-    setCurrentIndex(index);
-  };
   return (
     <HomeContainer>
       <HomeAppbar />
       <HomeTab selectedIndex={currentIndex} onTabSelected={setCurrentIndex} />
+      <PokemonList />
     </HomeContainer>
   );
 }
