@@ -3,7 +3,17 @@ export type IPokemon = {
   name: string;
   imageUrl: string;
   height?: number;
-  width?: number;
-  types?: any;
-  stats?: any;
+  weight?: number;
+  types: string[];
+  stats: IStat[];
+};
+
+export type IPokemonResponse = {
+  url: string;
+  name: string;
+};
+
+export type IStat = {
+  title: string;
+  value: number;
 };

@@ -10,7 +10,7 @@ interface IBadgeProp {
 
 export const TabItem = styled.TouchableOpacity`
   background: #ffffff;
-  width: 200px;
+  width: 50%;
   justify-content: center;
   align-items: center;
   flex-direction: row;

@@ -1,22 +1,47 @@
-import React from 'react';
-import {PokemonListContainer, Seperator} from './PokemonList.style';
+import React, {useRef} from 'react';
+import {
+  FlatListContainer,
+  PokemonListContainer,
+  Seperator,
+} from './PokemonList.style';
 import PokemonItem from '../pokemon-item/PokemonItem';
-import {data} from '../../data/data';
 import {IPokemon} from '../../types/types';
-import {FlatList} from 'react-native';
+import {FlatList, View} from 'react-native';
+import {Text} from 'react-native';
+import usePokemonHook from '../../hooks/use-pokemon-hook';
 
 export default function PokemonList() {
+  const {pokemons, doLoadMore, isLoading} = usePokemonHook();
+
+  const onEndReachedCalledDuringMomentum = useRef(true);
+
+  const onEndReachedHandler = ({distanceFromEnd}: any) => {
+    if (!onEndReachedCalledDuringMomentum.current) {
+      console.log('Loadmore');
+      doLoadMore();
+      onEndReachedCalledDuringMomentum.current = true;
+    }
+  };
+
   return (
     <PokemonListContainer>
-      <FlatList<IPokemon>
-        numColumns={3}
-        data={data}
-        renderItem={({item, index}: {item: IPokemon; index: number}) => (
-          <PokemonItem pokemon={item} index={index} />
-        )}
-        keyExtractor={item => item.id}
-        ItemSeparatorComponent={() => <Seperator />}
-      />
+      {isLoading && <Text>Loading ...</Text>}
+      <FlatListContainer>
+        <FlatList<IPokemon>
+          numColumns={3}
+          data={pokemons}
+          renderItem={({item, index}: {item: IPokemon; index: number}) => (
+            <PokemonItem pokemon={item} index={index} />
+          )}
+          keyExtractor={item => item.id}
+          ItemSeparatorComponent={() => <Seperator />}
+          onEndReachedThreshold={0.2}
+          onEndReached={onEndReachedHandler}
+          onMomentumScrollBegin={() => {
+            onEndReachedCalledDuringMomentum.current = false;
+          }}
+        />
+      </FlatListContainer>
     </PokemonListContainer>
   );
 }
