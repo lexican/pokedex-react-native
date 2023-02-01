@@ -5,16 +5,22 @@ import {baseUrl} from '../constants/constant';
 
 export default function usePokemonHook() {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoadingMore, setIsLoadingMore] = useState<boolean>(false);
 
   const [offset, setOffset] = useState<number>(0);
 
   useEffect(() => {
-    setIsLoading(true);
     fetchPokemons();
   }, [offset]);
 
   const fetchPokemons = async () => {
+    if (initialLoading) {
+      setIsLoading(true);
+    } else {
+      setIsLoadingMore(true);
+    }
     const results: IPokemon[] = [];
     try {
       const response = await axios.get(
@@ -54,7 +60,12 @@ export default function usePokemonHook() {
       }
       const tempResult = [...pokemons, ...results];
       setPokemons(tempResult);
-      setIsLoading(false);
+      if (initialLoading) {
+        setInitialLoading(false);
+        setIsLoading(false);
+      } else {
+        //setIsLoadingMore(false);
+      }
     } catch (e) {
       console.log(e);
     }
@@ -68,5 +79,6 @@ export default function usePokemonHook() {
     pokemons,
     isLoading,
     doLoadMore,
+    isLoadingMore,
   };
 }

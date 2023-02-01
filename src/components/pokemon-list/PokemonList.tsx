@@ -1,17 +1,17 @@
 import React, {useRef} from 'react';
 import {
   FlatListContainer,
+  Loader,
   PokemonListContainer,
   Seperator,
 } from './PokemonList.style';
 import PokemonItem from '../pokemon-item/PokemonItem';
 import {IPokemon} from '../../types/types';
 import {FlatList, View} from 'react-native';
-import {Text} from 'react-native';
 import usePokemonHook from '../../hooks/use-pokemon-hook';
 
 export default function PokemonList() {
-  const {pokemons, doLoadMore, isLoading} = usePokemonHook();
+  const {pokemons, doLoadMore, isLoading, isLoadingMore} = usePokemonHook();
 
   const onEndReachedCalledDuringMomentum = useRef(true);
 
@@ -23,9 +23,13 @@ export default function PokemonList() {
     }
   };
 
+  const AppLoader = () => {
+    return <Loader color="#3558CD" />;
+  };
+
   return (
     <PokemonListContainer>
-      {isLoading && <Text>Loading ...</Text>}
+      {isLoading && <AppLoader />}
       <FlatListContainer>
         <FlatList<IPokemon>
           numColumns={3}
@@ -40,6 +44,8 @@ export default function PokemonList() {
           onMomentumScrollBegin={() => {
             onEndReachedCalledDuringMomentum.current = false;
           }}
+          ListFooterComponent={isLoadingMore ? <Loader /> : null}
+          ListFooterComponentStyle={{marginTop: 20, marginBottom: 20}}
         />
       </FlatListContainer>
     </PokemonListContainer>
