@@ -1,6 +1,11 @@
 import React from 'react';
 import {IPokemon} from '../../types/types';
 import {
+  capitalise,
+  convertPokemonTypesToString,
+  convertToIdHash,
+} from '../../utils/utils';
+import {
   PokemoneImage,
   PokemonFooter,
   PokemonId,
@@ -16,15 +21,15 @@ type IProp = {
 };
 
 export default function PokemonItem({pokemon, index}: IProp) {
-  const {id, name, imageUrl} = pokemon;
+  const {id, name, imageUrl, types} = pokemon;
   return (
     <PokemonItemContainer index={index}>
       <PokemonItemInnerContainer index={index}>
         <PokemoneImage source={{uri: imageUrl}} />
         <PokemonFooter>
-          <PokemonId>{id}</PokemonId>
-          <PokemonName>{name}</PokemonName>
-          <PokemonType>Grass, Poison</PokemonType>
+          <PokemonId>{convertToIdHash(id)}</PokemonId>
+          <PokemonName>{capitalise(name)}</PokemonName>
+          <PokemonType>{convertPokemonTypesToString(types)}</PokemonType>
         </PokemonFooter>
       </PokemonItemInnerContainer>
     </PokemonItemContainer>

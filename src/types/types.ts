@@ -1,5 +1,5 @@
 export type IPokemon = {
-  id: string;
+  id: number;
   name: string;
   imageUrl: string;
   height?: number;

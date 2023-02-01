@@ -2,6 +2,7 @@ import {useEffect, useState} from 'react';
 import axios from 'axios';
 import {IPokemon, IPokemonResponse, IStat} from '../types/types';
 import {baseUrl} from '../constants/constant';
+import {capitalise} from '../utils/utils';
 
 export default function usePokemonHook() {
   const [pokemons, setPokemons] = useState<IPokemon[]>([]);
@@ -36,7 +37,7 @@ export default function usePokemonHook() {
         const stats: IStat[] = [];
 
         response.data.types.forEach((type: any) => {
-          types.push(type.type.name);
+          types.push(capitalise(type.type.name));
         });
 
         response.data.stats.forEach((stat: any) => {
@@ -64,7 +65,7 @@ export default function usePokemonHook() {
         setInitialLoading(false);
         setIsLoading(false);
       } else {
-        //setIsLoadingMore(false);
+        setIsLoadingMore(false);
       }
     } catch (e) {
       console.log(e);
