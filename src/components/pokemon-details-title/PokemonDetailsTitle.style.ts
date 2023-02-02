@@ -40,7 +40,7 @@ export const BackgroundIcon = styled.View`
   height: 176px;
   position: absolute;
   right: -50px;
-  bottom: 0;
+  bottom: 0px;
   z-index: 1;
 `;
 
@@ -50,6 +50,6 @@ export const PokemoneImage = styled.Image`
   width: 136px;
   height: 125px;
   position: absolute;
-  right: 16;
-  bottom: 0;
+  right: 16px;
+  bottom: 0px;
 `;
