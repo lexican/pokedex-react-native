@@ -16,3 +16,9 @@ export const capitalise = (str: string) => {
 export const calculateBMI = (weight: number, height: number) => {
   return (weight / (height * height)).toFixed(2);
 };
+
+export const capitalizeAllWordsSepByDash = (str: string) => {
+  const strArr: string[] = str.split('-');
+  const result = strArr.map(s => capitalise(s)).join(' ');
+  return result;
+};

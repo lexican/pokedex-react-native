@@ -9,3 +9,6 @@ export const PokemonDetailsAppBar = styled.View`
   border-bottom-color: #e2e2e2;
   border-bottom-width: 2px;
 `;
+export const PokemonDetailsScrollView = styled.ScrollView`
+  margin-bottom: 40px;
+`;

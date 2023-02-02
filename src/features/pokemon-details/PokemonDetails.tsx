@@ -5,9 +5,11 @@ import {
   AppBackArrow,
   PokemonDetailsAppBar,
   PokemonDetailsContainer,
+  PokemonDetailsScrollView,
 } from './PokemonDetails.style';
 import PokemonDetailsTitle from '../../components/pokemon-details-title/PokemonDetailsTitle';
 import PokemonDetailsBodyInfo from '../../components/pokemon-details-body-info/PokemonDetailsBodyInfo';
+import PokemonDetailsBaseStats from '../../components/pokemon-details-base-stats/PokemonDetailsBaseStats';
 
 type IProp = {
   route: any;
@@ -18,7 +20,8 @@ export default function PokemonDetails({route, navigation}: IProp) {
   const goBack = () => {
     navigation.goBack();
   };
-  const {name, types, id, imageUrl, height, weight} = route.params.pokemon;
+  const {name, types, id, imageUrl, height, weight, stats} =
+    route.params.pokemon;
   return (
     <PokemonDetailsContainer>
       <PokemonDetailsAppBar>
@@ -29,13 +32,16 @@ export default function PokemonDetails({route, navigation}: IProp) {
           <BackArrow />
         </AppBackArrow>
       </PokemonDetailsAppBar>
-      <PokemonDetailsTitle
-        name={name}
-        types={types}
-        id={id}
-        imageUrl={imageUrl}
-      />
-      <PokemonDetailsBodyInfo height={height} weight={weight} />
+      <PokemonDetailsScrollView>
+        <PokemonDetailsTitle
+          name={name}
+          types={types}
+          id={id}
+          imageUrl={imageUrl}
+        />
+        <PokemonDetailsBodyInfo height={height} weight={weight} />
+        <PokemonDetailsBaseStats stats={stats} />
+      </PokemonDetailsScrollView>
     </PokemonDetailsContainer>
   );
 }
