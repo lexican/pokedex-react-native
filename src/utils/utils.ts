@@ -12,3 +12,7 @@ export const capitalise = (str: string) => {
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+export const calculateBMI = (weight: number, height: number) => {
+  return (weight / (height * height)).toFixed(2);
+};

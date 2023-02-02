@@ -1,4 +1,5 @@
 import React from 'react';
+import {calculateBMI} from '../../utils/utils';
 import {
   BodyInfo,
   InfoSectionContainer,
@@ -14,16 +15,16 @@ type IProp = {
 export default function PokemonDetailsBodyInfo({height, weight}: IProp) {
   return (
     <BodyInfo>
-      <InfoSection title={'Height'} value={height} />
-      <InfoSection title={'Weight'} value={weight} />
-      <InfoSection title={'BMI'} value={0} />
+      <InfoSection title={'Height'} value={height.toString()} />
+      <InfoSection title={'Weight'} value={weight.toString()} />
+      <InfoSection title={'BMI'} value={calculateBMI(weight, height)} />
     </BodyInfo>
   );
 }
 
 type InfoSectionProp = {
   title: string;
-  value: number;
+  value: string;
 };
 
 const InfoSection = ({title, value}: InfoSectionProp) => {
