@@ -7,10 +7,16 @@ import {
 } from './PokemonList.style';
 import PokemonItem from '../pokemon-item/PokemonItem';
 import {IPokemon} from '../../types/types';
-import {FlatList, View} from 'react-native';
+import {FlatList} from 'react-native';
 import usePokemonHook from '../../hooks/use-pokemon-hook';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {RootStackParamList} from '../../navigation/navigation';
 
-export default function PokemonList() {
+type IProp = {
+  navigation: NativeStackScreenProps<RootStackParamList, 'PokemonDetails'>;
+};
+
+export default function PokemonList({navigation}: IProp) {
   const {pokemons, doLoadMore, isLoading, isLoadingMore} = usePokemonHook();
 
   const onEndReachedCalledDuringMomentum = useRef(true);
@@ -27,6 +33,10 @@ export default function PokemonList() {
     return <Loader color="#3558CD" />;
   };
 
+  const navigateToPokemonDetails = (pokemon: IPokemon) => {
+    navigation.navigate('PokemonDetails', {pokemon: pokemon});
+  };
+
   return (
     <PokemonListContainer>
       {isLoading && <AppLoader />}
@@ -35,7 +45,11 @@ export default function PokemonList() {
           numColumns={3}
           data={pokemons}
           renderItem={({item, index}: {item: IPokemon; index: number}) => (
-            <PokemonItem pokemon={item} index={index} />
+            <PokemonItem
+              pokemon={item}
+              index={index}
+              navigateToPokemonDetails={navigateToPokemonDetails}
+            />
           )}
           keyExtractor={item => item.id}
           ItemSeparatorComponent={() => <Seperator />}

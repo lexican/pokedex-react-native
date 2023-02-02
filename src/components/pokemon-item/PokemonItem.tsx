@@ -1,4 +1,6 @@
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
+import {RootStackParamList} from '../../navigation/navigation';
 import {IPokemon} from '../../types/types';
 import {
   capitalise,
@@ -18,12 +20,21 @@ import {
 type IProp = {
   pokemon: IPokemon;
   index: number;
+  navigateToPokemonDetails: (pokemon: IPokemon) => void;
 };
 
-export default function PokemonItem({pokemon, index}: IProp) {
+export default function PokemonItem({
+  pokemon,
+  index,
+  navigateToPokemonDetails,
+}: IProp) {
   const {id, name, imageUrl, types} = pokemon;
   return (
-    <PokemonItemContainer index={index}>
+    <PokemonItemContainer
+      index={index}
+      onPress={() => {
+        navigateToPokemonDetails(pokemon);
+      }}>
       <PokemonItemInnerContainer index={index}>
         <PokemoneImage source={{uri: imageUrl}} />
         <PokemonFooter>

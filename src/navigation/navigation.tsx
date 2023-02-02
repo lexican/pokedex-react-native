@@ -4,10 +4,12 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Splash from '../features/splash/Splash';
 import routes from '../routes/routes';
 import Home from '../features/home/Home';
+import PokemonDetails from '../features/pokemon-details/PokemonDetails';
 
 export type RootStackParamList = {
   Splash: undefined;
   Home: undefined;
+  PokemonDetails: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -24,6 +26,11 @@ const Navigation = () => {
         <Stack.Screen
           name={routes.Splash}
           component={Splash}
+          options={{title: ''}}
+        />
+        <Stack.Screen
+          name={routes.PokemonDetails}
+          component={PokemonDetails}
           options={{title: ''}}
         />
       </Stack.Navigator>

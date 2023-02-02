@@ -7,7 +7,7 @@ type IProp = {
   index: number;
 };
 
-export const PokemonItemContainer = styled.View<IProp>`
+export const PokemonItemContainer = styled.TouchableOpacity<IProp>`
   height: 186px;
   width: ${width}px;
 `;
