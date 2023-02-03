@@ -1,7 +1,7 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {RootStackParamList} from '../../navigation/navigation';
+import {Text} from 'react-native';
 import {IPokemon} from '../../types/types';
+import {getPokemonImageBackgroundColors} from '../../utils/colors';
 import {
   capitalise,
   convertPokemonTypesToString,
@@ -20,7 +20,10 @@ import {
 type IProp = {
   pokemon: IPokemon;
   index: number;
-  navigateToPokemonDetails: (pokemon: IPokemon) => void;
+  navigateToPokemonDetails: (
+    pokemon: IPokemon,
+    backgroundColor: string,
+  ) => void;
 };
 
 export default function PokemonItem({
@@ -29,15 +32,23 @@ export default function PokemonItem({
   navigateToPokemonDetails,
 }: IProp) {
   const {id, name, imageUrl, types} = pokemon;
+  const backgroundColor = getPokemonImageBackgroundColors(name[0]);
+
   return (
     <PokemonItemContainer
       index={index}
       onPress={() => {
-        navigateToPokemonDetails(pokemon);
+        navigateToPokemonDetails(pokemon, backgroundColor);
       }}>
       <PokemonItemInnerContainer index={index}>
-        <PokemoneImage source={{uri: imageUrl}} />
+        <PokemoneImage
+          source={{uri: imageUrl}}
+          style={{
+            backgroundColor: backgroundColor,
+          }}
+        />
         <PokemonFooter>
+          <Text>{}</Text>
           <PokemonId>{convertToIdHash(id)}</PokemonId>
           <PokemonName>{capitalise(name)}</PokemonName>
           <PokemonType>{convertPokemonTypesToString(types)}</PokemonType>

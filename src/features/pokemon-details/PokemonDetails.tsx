@@ -14,17 +14,19 @@ import PokemonDetailsBaseStats from '../../components/pokemon-details-base-stats
 type IProp = {
   route: any;
   navigation: any;
+  backgroundColor: string;
 };
 
 export default function PokemonDetails({route, navigation}: IProp) {
   const goBack = () => {
     navigation.goBack();
   };
-  const {name, types, id, imageUrl, height, weight, stats} =
-    route.params.pokemon;
+  const {backgroundColor, pokemon} = route.params;
+  const {name, types, id, imageUrl, height, weight, stats} = pokemon;
+
   return (
     <PokemonDetailsContainer>
-      <PokemonDetailsAppBar>
+      <PokemonDetailsAppBar backgroundColor={backgroundColor}>
         <AppBackArrow
           onPress={() => {
             goBack();
@@ -38,6 +40,7 @@ export default function PokemonDetails({route, navigation}: IProp) {
           types={types}
           id={id}
           imageUrl={imageUrl}
+          backgroundColor={backgroundColor}
         />
         <PokemonDetailsBodyInfo height={height} weight={weight} />
         <PokemonDetailsBaseStats stats={stats} />

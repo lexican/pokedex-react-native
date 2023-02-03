@@ -14,13 +14,14 @@ import {
   convertToIdHash,
 } from '../../utils/utils';
 
-import PokemonBackgroundIcon from '../../../assets/icons/pokemon-background.svg';
+import PokemonIcon from '../pokemon-icon/PokemonIcon';
 
 type IProp = {
   name: string;
   types: string[];
   id: number;
   imageUrl: string;
+  backgroundColor: string;
 };
 
 export default function PokemonDetailsTitle({
@@ -28,16 +29,17 @@ export default function PokemonDetailsTitle({
   types,
   id,
   imageUrl,
+  backgroundColor,
 }: IProp) {
   return (
-    <PokemonDetailsTitleContainer>
+    <PokemonDetailsTitleContainer backgroundColor={backgroundColor}>
       <PokemonDetailsInnerTitleContainer>
         <PokemonName>{capitalise(name)}</PokemonName>
         <PokemonType>{convertPokemonTypesToString(types)}</PokemonType>
       </PokemonDetailsInnerTitleContainer>
       <PokemonId>{convertToIdHash(id)}</PokemonId>
       <BackgroundIcon>
-        <PokemonBackgroundIcon />
+        <PokemonIcon color={backgroundColor} />
       </BackgroundIcon>
       <PokemoneImage source={{uri: imageUrl}} />
     </PokemonDetailsTitleContainer>

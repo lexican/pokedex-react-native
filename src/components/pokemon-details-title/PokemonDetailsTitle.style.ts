@@ -1,13 +1,15 @@
 import styled from 'styled-components/native';
-
-export const PokemonDetailsTitleContainer = styled.View`
+type IProp = {
+  backgroundColor: string;
+};
+export const PokemonDetailsTitleContainer = styled.View<IProp>`
   height: 200px;
-  background: #f3f9ef;
   padding-top: 23px;
   padding-left: 16px;
   padding-bottom: 14px;
   flex-direction: column;
   justify-content: space-between;
+  background-color: ${props => props.backgroundColor};
 `;
 
 export const PokemonDetailsInnerTitleContainer = styled.View``;
