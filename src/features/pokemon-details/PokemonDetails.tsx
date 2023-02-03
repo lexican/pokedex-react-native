@@ -11,6 +11,7 @@ import PokemonDetailsTitle from '../../components/pokemon-details-title/PokemonD
 import PokemonDetailsBodyInfo from '../../components/pokemon-details-body-info/PokemonDetailsBodyInfo';
 import PokemonDetailsBaseStats from '../../components/pokemon-details-base-stats/PokemonDetailsBaseStats';
 import FavouriteBtn from '../../components/favourite-btn/FavouriteBtn';
+import {useAppStateContext} from '../../context/AppContext';
 
 type IProp = {
   route: any;
@@ -24,6 +25,18 @@ export default function PokemonDetails({route, navigation}: IProp) {
   };
   const {backgroundColor, pokemon} = route.params;
   const {name, types, id, imageUrl, height, weight, stats} = pokemon;
+
+  const {isFavouritedPokemon, favouritePokemon, unFavouritePokemon} =
+    useAppStateContext();
+  const isFavourited: boolean = isFavouritedPokemon(pokemon);
+
+  const onPress = () => {
+    if (isFavourited) {
+      unFavouritePokemon(pokemon);
+    } else {
+      favouritePokemon(pokemon);
+    }
+  };
 
   return (
     <PokemonDetailsContainer>
@@ -46,7 +59,7 @@ export default function PokemonDetails({route, navigation}: IProp) {
         <PokemonDetailsBodyInfo height={height} weight={weight} />
         <PokemonDetailsBaseStats stats={stats} />
       </PokemonDetailsScrollView>
-      <FavouriteBtn />
+      <FavouriteBtn isFavourite={isFavourited} onPress={onPress} />
     </PokemonDetailsContainer>
   );
 }

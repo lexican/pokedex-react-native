@@ -7,7 +7,7 @@ type IStateContext = {
   pokemons: IPokemon[];
   favouritePokemon: (pokemon: IPokemon) => void;
   unFavouritePokemon: (pokemon: IPokemon) => void;
-  isFavouritedPokemon: (pokemon: IPokemon) => void;
+  isFavouritedPokemon: (pokemon: IPokemon) => boolean;
 };
 
 type IProp = {
@@ -23,8 +23,9 @@ export const AppStateProvider: FC<IProp> = ({children}) => {
     const tempPokemons = pokemons.filter(poke => poke.id != pokemon.id);
     setPokemons(tempPokemons);
   };
-  const isFavouritedPokemon = (pokemon: IPokemon) => {
-    return pokemons.find(poke => poke.id === pokemon.id);
+  const isFavouritedPokemon = (pokemon: IPokemon): boolean => {
+    const poke = pokemons.find(poke => poke.id === pokemon.id);
+    return poke ? true : false;
   };
   const value = useMemo(
     () => ({

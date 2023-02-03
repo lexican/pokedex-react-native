@@ -14,7 +14,6 @@ import {RootStackParamList} from '../../navigation/navigation';
 
 type IProp = {
   navigation: NativeStackScreenProps<RootStackParamList, 'PokemonDetails'>;
-  backgroundColor: string;
 };
 
 export default function PokemonList({navigation}: IProp) {

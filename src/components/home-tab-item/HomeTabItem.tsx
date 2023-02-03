@@ -1,4 +1,5 @@
 import React from 'react';
+import {useAppStateContext} from '../../context/AppContext';
 import {
   FavouriteBadge,
   FavouriteBadgeTitle,
@@ -21,6 +22,7 @@ export default function HomeTabItem({
   title,
 }: IProp) {
   const active = index === selectedIndex;
+  const {pokemons} = useAppStateContext();
   return (
     <TabItem
       activeOpacity={0.9}
@@ -29,7 +31,7 @@ export default function HomeTabItem({
       }}>
       <TabTitle active={active}>{title}</TabTitle>
       <FavouriteBadge showBadge={index === 1}>
-        <FavouriteBadgeTitle>0</FavouriteBadgeTitle>
+        <FavouriteBadgeTitle>{pokemons.length}</FavouriteBadgeTitle>
       </FavouriteBadge>
       <TabIndicator active={active} />
     </TabItem>
