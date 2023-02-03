@@ -10,6 +10,7 @@ import {
 import PokemonDetailsTitle from '../../components/pokemon-details-title/PokemonDetailsTitle';
 import PokemonDetailsBodyInfo from '../../components/pokemon-details-body-info/PokemonDetailsBodyInfo';
 import PokemonDetailsBaseStats from '../../components/pokemon-details-base-stats/PokemonDetailsBaseStats';
+import FavouriteBtn from '../../components/favourite-btn/FavouriteBtn';
 
 type IProp = {
   route: any;
@@ -45,6 +46,7 @@ export default function PokemonDetails({route, navigation}: IProp) {
         <PokemonDetailsBodyInfo height={height} weight={weight} />
         <PokemonDetailsBaseStats stats={stats} />
       </PokemonDetailsScrollView>
+      <FavouriteBtn />
     </PokemonDetailsContainer>
   );
 }
