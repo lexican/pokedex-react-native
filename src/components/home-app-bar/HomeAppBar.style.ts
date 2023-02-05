@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 export const AppBar = styled.View`
   height: 57px;
@@ -19,6 +20,7 @@ export const AppBarTitle = styled.Text`
   line-height: 33px;
   color: #161a33;
   margin-left: 8px;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const FlexRow = styled.View`

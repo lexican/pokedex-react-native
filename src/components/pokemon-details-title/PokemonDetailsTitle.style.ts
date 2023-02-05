@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 type IProp = {
   backgroundColor: string;
 };
@@ -19,6 +20,7 @@ export const PokemonName = styled.Text`
   font-size: 32px;
   line-height: 44px;
   color: #161a33;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const PokemonType = styled.Text`
@@ -27,6 +29,7 @@ export const PokemonType = styled.Text`
   font-size: 16px;
   line-height: 22px;
   color: #161a33;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const PokemonId = styled.Text`
@@ -35,6 +38,7 @@ export const PokemonId = styled.Text`
   font-size: 16px;
   line-height: 22px;
   color: #161a33;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const BackgroundIcon = styled.View`

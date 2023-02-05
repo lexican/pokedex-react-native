@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 interface IProp {
   active: boolean;
@@ -23,6 +24,7 @@ export const TabTitle = styled.Text<IProp>`
   line-height: 24px;
   text-align: center;
   color: ${props => (props.active ? '#161a33' : '#6B6B6B')};
+  font-family: ${NotoSans_Regular};
 `;
 
 export const TabIndicator = styled.View<IProp>`
@@ -54,4 +56,5 @@ export const FavouriteBadgeTitle = styled.Text`
   line-height: 16px;
   text-align: center;
   color: #ffffff;
+  font-family: ${NotoSans_Regular};
 `;

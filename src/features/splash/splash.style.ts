@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 export const SplashContainer = styled.View`
   flex: 1;
@@ -29,6 +30,7 @@ export const Title = styled.Text`
   letter-spacing: 4.8px;
   text-transform: uppercase;
   color: #ffffff;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const SubTitle = styled.Text`
@@ -37,4 +39,5 @@ export const SubTitle = styled.Text`
   font-size: 48px;
   line-height: 65px;
   color: #ffffff;
+  font-family: ${NotoSans_Regular};
 `;

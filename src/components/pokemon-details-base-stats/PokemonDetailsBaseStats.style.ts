@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 export const PokemonDetailsBaseStatsCon = styled.View`
   margin-top: 20px;
@@ -19,6 +20,7 @@ export const BaseStatsTitle = styled.Text`
   font-size: 16px;
   line-height: 22px;
   color: #161a33;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const StatItemContainer = styled.View`
@@ -38,6 +40,7 @@ export const StatItemTitle = styled.Text`
   line-height: 21px;
   color: #6b6b6b;
   margin-right: 6px;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const StatItemValue = styled.Text`
@@ -46,4 +49,5 @@ export const StatItemValue = styled.Text`
   font-size: 14px;
   line-height: 21px;
   color: #161a33;
+  font-family: ${NotoSans_Regular};
 `;

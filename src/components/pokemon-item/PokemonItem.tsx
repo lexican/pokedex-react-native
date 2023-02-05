@@ -1,5 +1,4 @@
 import React from 'react';
-import {Text} from 'react-native';
 import {IPokemon} from '../../types/types';
 import {getPokemonImageBackgroundColors} from '../../utils/colors';
 import {
@@ -48,7 +47,6 @@ export default function PokemonItem({
           }}
         />
         <PokemonFooter>
-          <Text>{}</Text>
           <PokemonId>{convertToIdHash(id)}</PokemonId>
           <PokemonName>{capitalise(name)}</PokemonName>
           <PokemonType>{convertPokemonTypesToString(types)}</PokemonType>

@@ -1,5 +1,6 @@
 import {Dimensions} from 'react-native';
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 const width = (Dimensions.get('window').width - 24) / 3;
 
@@ -35,6 +36,7 @@ export const PokemonId = styled.Text`
   font-size: 12px;
   line-height: 16px;
   color: #6b6b6b;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const PokemonName = styled.Text`
@@ -44,6 +46,7 @@ export const PokemonName = styled.Text`
   line-height: 20px;
   color: rgba(0, 0, 0, 0.87);
   margin-top: 2px;
+  font-family: ${NotoSans_Regular};
 `;
 
 export const PokemonType = styled.Text`
@@ -53,4 +56,5 @@ export const PokemonType = styled.Text`
   line-height: 16px;
   color: #6b6b6b;
   margin-top: 10px;
+  font-family: ${NotoSans_Regular};
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import {NotoSans_Regular} from '../../constants/constant';
 
 type IProps = {
   isFavourite: boolean;
@@ -20,4 +21,5 @@ export const FavouriteButtonTitle = styled.Text<IProps>`
   font-weight: 700;
   font-size: 14px;
   line-height: 18px;
+  font-family: ${NotoSans_Regular};
 `;
