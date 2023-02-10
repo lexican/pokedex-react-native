@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash should render correctly 1`] = `
+<View
+  style={
+    [
+      {
+        "backgroundColor": "#3558CD",
+        "flexBasis": 0,
+        "flexDirection": "column",
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "justifyContent": "center",
+        "paddingLeft": 40,
+        "paddingRight": 40,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "display": "flex",
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <RNSVGSvgView
+      align="xMidYMid"
+      bbHeight="75"
+      bbWidth="75"
+      fill="none"
+      focusable={false}
+      height="75"
+      meetOrSlice={0}
+      minX={0}
+      minY={0}
+      style={
+        [
+          {
+            "backgroundColor": "transparent",
+            "borderWidth": 0,
+          },
+          {
+            "flex": 0,
+            "height": 75,
+            "width": 75,
+          },
+        ]
+      }
+      vbHeight={75}
+      vbWidth={75}
+      width="75"
+    >
+      <RNSVGGroup
+        fill={null}
+        propList={
+          [
+            "fill",
+          ]
+        }
+      >
+        <RNSVGPath
+          d="M4.68748 38.6449C4.68748 20.0192 22.5 34.7906 37.8125 42.4992C51.5625 38.6449 70.9375 20.0191 70.9375 38.6449C70.9375 57.2706 55.9343 66.5884 37.8125 66.5884C19.6906 66.5884 4.68748 57.2706 4.68748 38.6449Z"
+          fill={
+            {
+              "payload": 4294967295,
+              "type": 0,
+            }
+          }
+          opacity={0.9}
+          propList={
+            [
+              "fill",
+            ]
+          }
+        />
+        <RNSVGPath
+          d="M70.9375 32.1875C70.9375 50.3094 53.125 35.9375 37.8125 28.4375C24.0625 32.1875 4.6875 50.3094 4.6875 32.1875C4.6875 14.0657 19.6907 5 37.8125 5C55.9344 5 70.9375 14.0657 70.9375 32.1875Z"
+          fill={
+            {
+              "payload": 4291635315,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "fill",
+            ]
+          }
+        />
+        <RNSVGCircle
+          cx="37.0312"
+          cy="37.9688"
+          fill={
+            {
+              "payload": 4294967295,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "fill",
+            ]
+          }
+          r="7.03125"
+        />
+        <RNSVGPath
+          d="M0 37.5C0 16.7893 16.7893 0 37.5 0C58.2108 0 75 16.7893 75 37.5C75 58.2108 58.2108 75 37.5 75C16.7893 75 0 58.2108 0 37.5ZM8.62871 41.6667C10.6505 55.8012 22.8064 66.6667 37.5 66.6667C52.1937 66.6667 64.3496 55.8012 66.3712 41.6667H49.2887C47.5725 46.5217 42.9425 50 37.5 50C32.0575 50 27.4271 46.5217 25.7112 41.6667H8.62871ZM66.3712 33.3333C64.3496 19.1988 52.1937 8.33333 37.5 8.33333C22.8064 8.33333 10.6505 19.1988 8.62871 33.3333H25.7112C27.4271 28.4784 32.0575 25 37.5 25C42.9425 25 47.5725 28.4784 49.2887 33.3333H66.3712ZM37.5 41.6667C39.8012 41.6667 41.6667 39.8012 41.6667 37.5C41.6667 35.1987 39.8012 33.3333 37.5 33.3333C35.1987 33.3333 33.3333 35.1987 33.3333 37.5C33.3333 39.8012 35.1987 41.6667 37.5 41.6667Z"
+          fill={
+            {
+              "payload": 4279638579,
+              "type": 0,
+            }
+          }
+          propList={
+            [
+              "fill",
+            ]
+          }
+        />
+      </RNSVGGroup>
+    </RNSVGSvgView>
+    <View
+      style={
+        [
+          {
+            "display": "flex",
+            "flexDirection": "column",
+            "paddingLeft": 16,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "NotoSans-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "400",
+              "letterSpacing": 4.8,
+              "lineHeight": 22,
+              "textTransform": "uppercase",
+            },
+          ]
+        }
+      >
+        Pokemon
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#ffffff",
+              "fontFamily": "NotoSans-Regular",
+              "fontSize": 48,
+              "fontStyle": "normal",
+              "fontWeight": "700",
+              "lineHeight": 65,
+            },
+          ]
+        }
+      >
+        Pokedex
+      </Text>
+    </View>
+  </View>
+</View>
+`;

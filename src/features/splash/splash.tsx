@@ -6,17 +6,18 @@ import {
   SubTitle,
   Title,
 } from './Splash.style';
-import Logo from '../../../assets/icons/logo.svg';
 import {NativeStackScreenProps} from '@react-navigation/native-stack/lib/typescript/src/types';
 import {RootStackParamList} from '../../navigation/navigation';
+import {Logo} from '../../components/logo/Logo';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
 const Splash = ({navigation}: Props): JSX.Element => {
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       navigation.navigate('Home');
     }, 3000);
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
